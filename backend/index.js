@@ -4,12 +4,14 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import routes from "./routes/soccerRoutes";
 
+const mongoName = env.userName;
+const mongoPasswd = env.userPass;
 
 const app = express();
 const PORT = 4000;
 
 //mongodb connection
-const uri ="mongodb+srv://csinan:Deneme1234@cluster0-cs.yit7w.mongodb.net/soccerDB-tutorial?retryWrites=true&w=majority";
+const uri =`mongodb+srv://${mongoName}:{mongoPasswd}@cluster0-cs.yit7w.mongodb.net/soccerDB-tutorial?retryWrites=true&w=majority`;
 mongoose.Promise = global.Promise;
 mongoose.connect(uri, {
     useNewUrlParser: true,
